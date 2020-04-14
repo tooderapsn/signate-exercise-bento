@@ -2,6 +2,7 @@ FROM jupyter/datascience-notebook:94fdd01b492f
 
 RUN pip install --upgrade pip
 RUN pip install pandas-profiling==1.4.1
+RUN pip install nbdime
 RUN jupyter labextension install @jupyterlab/toc
 
 RUN wget https://ipafont.ipa.go.jp/IPAexfont/ipaexg00401.zip
