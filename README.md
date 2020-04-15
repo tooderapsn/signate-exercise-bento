@@ -14,8 +14,16 @@ https://signate.jp/competitions/24
 * 例外
   * .ipynbのconflict問題を解決する方法がみつかるまでは、conflictを避けるため、やむを得ず下記のルールを適用する。
     * featureブランチにおいて、`git merge develop`(ローカルでfeartureにdevelopをマージする)はダメ。
-    * 最新のdevelopの内容を取り入れたい場合
+      * リモートdevelopへの各作業者のfeatureのマージは各自の進捗を確認しながら適切なタイミングで行い、上記の作業をなるべく発生させないように注意する。
+* 作業フロー
+  * developを最新にする。developブランチにおいて`git pull`
+  * そこからfeatureブランチを切る。`git switch -c feature/#999_do_something`（`switch -c`は`checkout -b`と同じ）
+    * Backlogのタスクの番号（必須）とタスク概要を`feature/#999_do_something`のように命名する。
+  * 作業が完了したら、**自分が変更を加えた.ipynbにリモートのdevelopで変更がないかを確認する。**
+    * 変更がない場合
+      * `git push`　※ 初回は `git push --set-upstream origin feature/#999_do_something`が必要
+    * 変更があった場合
       * developブランチにおいて、`git pull`で最新にする。
-      * その状態で`git switch -c feature/#999_do_something`（`switch -c`は`checkout -b`と同じ）でブランチを切り直して、作業していたコードを貼り直す。
-    * ※ リモートdevelopへの各作業者のfeatureのマージは各自の進捗を確認しながら適切なタイミングで行い、上記の作業をなるべく発生させないように注意する。
-
+      * その状態で`git switch -c feature/#999_do_something_2`でブランチを切り直して、`#999_do_something`で作業していたコードをjupyter上で貼り直す。
+  * github上でdevelopにプルリクエストを出す。
+  * developにマージされたらBacklogのタスクを「完了」とする。
