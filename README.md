@@ -19,11 +19,15 @@ https://signate.jp/competitions/24
   * developを最新にする。developブランチにおいて`git pull`
   * そこからfeatureブランチを切る。`git switch -c feature/#999_do_something`（`switch -c`は`checkout -b`と同じ）
     * Backlogのタスクの番号（必須）とタスク概要を`feature/#999_do_something`のように命名する。
-  * 作業が完了したら、**自分が変更を加えた.ipynbにリモートのdevelopで変更がないかを確認する。**
-    * 変更がない場合
-      * `git push`　※ 初回は `git push --set-upstream origin feature/#999_do_something`が必要
-    * 変更があった場合
-      * developブランチにおいて、`git pull`で最新にする。
-      * その状態で`git switch -c feature/#999_do_something_2`でブランチを切り直して、`#999_do_something`で作業していたコードをjupyter上で貼り直す。
+  * 作業が完了したら、
+    * Jupyter上でKernerlを再起動して全てのセルを実行しなおし、データ部分での冪等性を確認する。
+    * **自分が変更を加えた.ipynbにリモートのdevelopで変更がないかを確認する。**
+      * 変更がない場合
+        * `git push`　※ 初回は `git push --set-upstream origin feature/#999_do_something`が必要
+      * 変更があった場合
+        * developブランチにおいて、`git pull`で最新にする。
+        * その状態で`git switch -c feature/#999_do_something_2`でブランチを切り直して、`#999_do_something`で作業していたコードをjupyter上で貼り直す。
   * github上でdevelopにプルリクエストを出す。
   * developにマージされたらBacklogのタスクを「完了」とする。
+* 運用上のポイント
+  * csvなどで中間ファイルとして吐き出しておくと、データに変更が合った場合にgitで検知できるので、作成した主要なデータについてはcsvファイルなどでリポジトリ内に永続化しておく。
