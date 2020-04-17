@@ -20,7 +20,7 @@ https://signate.jp/competitions/24
   * そこからfeatureブランチを切る。`git switch -c feature/#999_do_something`（`switch -c`は`checkout -b`と同じ）
     * Backlogのタスクの番号（必須）とタスク概要を`feature/#999_do_something`のように命名する。
   * 作業が完了したら、
-    * Jupyter上でKernerlを再起動して全てのセルを実行しなおし、データ部分での冪等性を確認する。
+    * Jupyter上でKernelを再起動して全てのセルを実行しなおし、データ部分での冪等性を確認する。
     * **自分が変更を加えた.ipynbにリモートのdevelopで変更がないかを確認する。**
       * 変更がない場合
         * `git push`　※ 初回は `git push --set-upstream origin feature/#999_do_something`が必要
