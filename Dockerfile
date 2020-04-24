@@ -8,6 +8,7 @@ RUN jupyter labextension install @jupyterlab/git
 RUN pip install nbdime==1.1.0
 RUN nbdime extensions --enable
 RUN jupyter labextension install @jupyterlab/toc
+RUN pip install jpholiday
 
 RUN wget https://ipafont.ipa.go.jp/IPAexfont/ipaexg00401.zip
 RUN unzip ipaexg00401.zip
