@@ -6,7 +6,7 @@ RUN pip install jupyterlab-git==0.10.0
 RUN jupyter lab build
 RUN jupyter labextension install @jupyterlab/git
 RUN pip install nbdime==1.1.0
-RUN nbdime extensions --enable
+RUN nbdime extensions --enable --user
 RUN jupyter labextension install @jupyterlab/toc
 RUN pip install jpholiday
 
